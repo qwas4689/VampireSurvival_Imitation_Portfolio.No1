@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.UI;
 using ETypeSelect = Define.EPanelType;
-
 
 public class SelectBox : MonoBehaviour
 {
     [SerializeField] private Image[] _characters;
     [SerializeField] private Image[] _maps;
     [SerializeField] private ETypeSelect _eTypeSelect;
+
+    [SerializeField] private Stat _stat;
 
     // »óÇÏÁÂ¿ì
     private int[] _characterLookUpTable = { -3, 3, 1, -1 };
@@ -27,7 +27,7 @@ public class SelectBox : MonoBehaviour
     private float flickerTime;
 
     private int _characterIndex;
-    public int CharacterIndex { get { return _characterIndex; } set { _characterIndex = value; } }
+    public int CharacterIndex { get { return _characterIndex; } set { _characterIndex = value; }}
 
     private int _mapIndex;
 
@@ -106,6 +106,7 @@ public class SelectBox : MonoBehaviour
                     _characterIndex += _characterLookUpTable[LEFT];
                 }
             }
+            _stat.IndexChange.Invoke();
             Flicker(_characters[_characterIndex]);
         }
 
