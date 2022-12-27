@@ -27,6 +27,8 @@ public class SelectBox : MonoBehaviour
     private float flickerTime;
 
     private int _characterIndex;
+    public int CharacterIndex { get { return _characterIndex; } set { _characterIndex = value; } }
+
     private int _mapIndex;
 
     private void Update()
