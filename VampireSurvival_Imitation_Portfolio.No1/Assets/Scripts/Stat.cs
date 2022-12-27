@@ -7,7 +7,7 @@ using ChampionData = Champion.ChampionData;
 
 public class Stat : MonoBehaviour
 {
-    [SerializeField] private SelectBox _selectBox;
+    [SerializeField] private CharacterSelect _characterSelect;
     [SerializeField] private TextMeshProUGUI[] _statText;
 
     private ChampionData _championData;
@@ -21,7 +21,7 @@ public class Stat : MonoBehaviour
 
     private void SetStat()
     {
-        if (_selectBox.CharacterIndex == 0)
+        if (_characterSelect.CharacterIndex == 0)
         {
             _championData.Name = "Android";
             _championData.AttackPower = 1;
@@ -31,7 +31,7 @@ public class Stat : MonoBehaviour
             _championData.AcquisitionRange = 100;
             _championData.EXP = 100;
         }
-        else if (_selectBox.CharacterIndex == 1)
+        else if (_characterSelect.CharacterIndex == 1)
         {
             _championData.Name = "Skeleton";
             _championData.AttackPower = 2;
@@ -41,7 +41,7 @@ public class Stat : MonoBehaviour
             _championData.AcquisitionRange = 150;
             _championData.EXP = 150;
         }
-        else if (_selectBox.CharacterIndex == 2)
+        else if (_characterSelect.CharacterIndex == 2)
         {
             _championData.Name = "DemiGod";
             _championData.AttackPower = 3;
@@ -51,7 +51,7 @@ public class Stat : MonoBehaviour
             _championData.AcquisitionRange = 70;
             _championData.EXP = 70;
         }
-        else if (_selectBox.CharacterIndex == 3)
+        else if (_characterSelect.CharacterIndex == 3)
         {
             _championData.Name = null;
             _championData.AttackPower = 0;
@@ -61,7 +61,7 @@ public class Stat : MonoBehaviour
             _championData.AcquisitionRange = 0;
             _championData.EXP = 0;
         }
-        else if (_selectBox.CharacterIndex == 4)
+        else if (_characterSelect.CharacterIndex == 4)
         {
             _championData.Name = null;
             _championData.AttackPower = 0;
@@ -71,7 +71,7 @@ public class Stat : MonoBehaviour
             _championData.AcquisitionRange = 0;
             _championData.EXP = 0;
         }
-        else if (_selectBox.CharacterIndex == 5)
+        else if (_characterSelect.CharacterIndex == 5)
         {
             _championData.Name = null;
             _championData.AttackPower = 0;
@@ -81,7 +81,7 @@ public class Stat : MonoBehaviour
             _championData.AcquisitionRange = 0;
             _championData.EXP = 0;
         }
-        else if (_selectBox.CharacterIndex == 6)
+        else if (_characterSelect.CharacterIndex == 6)
         {
             _championData.Name = null;
             _championData.AttackPower = 0;

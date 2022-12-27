@@ -14,6 +14,7 @@ public class TitleButtonsController : MonoBehaviour
     [SerializeField] private GameObject _abilityPanel;
     [SerializeField] private GameObject _optionPanel;
 
+    public Stack<GameObject> UIStack = new Stack<GameObject>();
 
     private void Start()
     {
@@ -30,18 +31,30 @@ public class TitleButtonsController : MonoBehaviour
         _optionButton.onClick.AddListener(OnClickExitButton);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && UIStack.Count > 0)
+        {
+            UIStack.Peek().SetActive(false);
+            UIStack.Pop();
+        }
+    }
+
     private void OnClickStartButton()
     {
+        UIStack.Push(_characterSelectPanel);
         _characterSelectPanel.SetActive(true);
     }
 
     private void OnClickAbilityButton()
     {
+        UIStack.Push(_abilityPanel);
         _abilityPanel.SetActive(true);
     }
 
     private void OnClickOptionButton()
     {
+        UIStack.Push(_optionPanel);
         _optionPanel.SetActive(true);
     }
 
