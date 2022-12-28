@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class MapSelect : MonoBehaviour
 {
     [SerializeField] private Image[] _maps;
+    [SerializeField] private PlayerInput _playerInput;
+
     private int _mapIndex;
 
     // ªÛ«œ
@@ -21,7 +23,7 @@ public class MapSelect : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (_playerInput.IsUp)
         {
             _maps[_mapIndex].color = Color.white;
             if (_mapIndex <= 0)
@@ -34,7 +36,7 @@ public class MapSelect : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (_playerInput.IsDown)
         {
             _maps[_mapIndex].color = Color.white;
             if (_mapIndex >= _maps.Length - 1)
@@ -49,7 +51,7 @@ public class MapSelect : MonoBehaviour
 
         Flicker(_maps[_mapIndex]);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_playerInput.IsNext)
         {
             SceneManager.LoadScene(1);
         }
