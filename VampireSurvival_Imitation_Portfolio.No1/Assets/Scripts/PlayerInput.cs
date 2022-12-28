@@ -16,7 +16,7 @@ public class PlayerInput : MonoBehaviour
         IsUp = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
         IsDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
         IsRight = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D);
-        IsRight = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A);
+        IsLeft = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A);
         IsNext = Input.GetKeyDown(KeyCode.Space);
         IsBack = Input.GetKeyDown(KeyCode.Escape);
     }
