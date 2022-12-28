@@ -14,9 +14,41 @@ public class TitleButtonsController : MonoBehaviour
     [SerializeField] private GameObject _abilityPanel;
     [SerializeField] private GameObject _optionPanel;
 
+    [SerializeField] private PlayerInput _playerInput;
+
+    [SerializeField] private RectTransform _selectArrow;
+
     public Stack<GameObject> UIStack = new Stack<GameObject>();
 
+    private int[] _selectArrowLookUpTable = { 80, -80 };
+
     private void Start()
+    {
+        AddButtonEvents();
+    }
+
+    private void Update()
+    {
+        if (_playerInput.IsBack && UIStack.Count > 0)
+        {
+            UIStack.Peek().SetActive(false);
+            UIStack.Pop();
+        }
+    }
+
+    private void MoveSelectArrow()
+    {
+        if (_playerInput.IsUp)
+        {
+
+        }
+        if (_playerInput.IsDown)
+        {
+
+        }
+    }
+
+    private void AddButtonEvents()
     {
         _startButton.onClick.RemoveListener(OnClickStartButton);
         _startButton.onClick.AddListener(OnClickStartButton);
@@ -29,15 +61,6 @@ public class TitleButtonsController : MonoBehaviour
 
         _optionButton.onClick.RemoveListener(OnClickExitButton);
         _optionButton.onClick.AddListener(OnClickExitButton);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && UIStack.Count > 0)
-        {
-            UIStack.Peek().SetActive(false);
-            UIStack.Pop();
-        }
     }
 
     private void OnClickStartButton()

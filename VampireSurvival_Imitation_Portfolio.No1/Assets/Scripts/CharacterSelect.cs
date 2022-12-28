@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class CharacterSelect : MonoBehaviour
 {
     [SerializeField] private Image[] _characters;
-
+    [SerializeField] private PlayerInput _playerInput;
 
     [SerializeField] private Stat _stat;
     [SerializeField] private GameObject _mapPanel;
@@ -29,7 +29,7 @@ public class CharacterSelect : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (_playerInput.IsUp)
         {
             _characters[_characterIndex].color = Color.white;
             if (_characterIndex == 0)
@@ -54,7 +54,7 @@ public class CharacterSelect : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (_playerInput.IsDown)
         {
             _characters[_characterIndex].color = Color.white;
             if (_characterIndex == _characters.Length - 3)
@@ -75,7 +75,7 @@ public class CharacterSelect : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (_playerInput.IsRight)
         {
             _characters[_characterIndex].color = Color.white;
             if (_characters.Length - 1 <= _characterIndex)
@@ -88,7 +88,7 @@ public class CharacterSelect : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (_playerInput.IsLeft)
         {
             _characters[_characterIndex].color = Color.white;
             if (_characterIndex <= DEFAULT_VALUE)
@@ -104,7 +104,7 @@ public class CharacterSelect : MonoBehaviour
         _stat.IndexChange.Invoke();
         Flicker(_characters[_characterIndex]);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_playerInput.IsNext)
         {
             _titleButtonsController.UIStack.Push(_mapPanel);
             _mapPanel.SetActive(true);
