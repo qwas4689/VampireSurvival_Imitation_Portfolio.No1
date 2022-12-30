@@ -14,7 +14,7 @@ public class Stat : MonoBehaviour
 
     public Action IndexChange;
 
-    private void Start()
+    private void Awake()
     {
         IndexChange = SetStat;
     }

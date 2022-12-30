@@ -5,4 +5,14 @@ namespace Define
         Character,
         Map,
     }
+
+    public enum EAbility
+    {
+        AttackPower,
+        HP,
+        DefensivePower,
+        Speed,
+        AcquisitionRange,
+        EXP,
+    }
 }

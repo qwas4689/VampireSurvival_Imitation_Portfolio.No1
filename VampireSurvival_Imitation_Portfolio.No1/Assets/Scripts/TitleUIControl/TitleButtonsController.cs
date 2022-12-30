@@ -43,8 +43,11 @@ public class TitleButtonsController : MonoBehaviour
             UIStack.Peek().SetActive(false);
             UIStack.Pop();
         }
-        MoveSelectArrow();
-        SelectButton();
+        if (UIStack.Count == 0)
+        {
+            MoveSelectArrow();
+            SelectButton();
+        }
     }
 
     private void MoveSelectArrow()

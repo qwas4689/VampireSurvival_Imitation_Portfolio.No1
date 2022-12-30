@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     public bool IsLeft { get; private set; }
     public bool IsNext { get; private set; }
     public bool IsBack { get; private set; }
+    public bool IsReturn { get; private set; }
 
     private void Update()
     {
@@ -19,5 +20,6 @@ public class PlayerInput : MonoBehaviour
         IsLeft = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A);
         IsNext = Input.GetKeyDown(KeyCode.Space);
         IsBack = Input.GetKeyDown(KeyCode.Escape);
+        IsReturn = Input.GetKeyDown(KeyCode.Backspace);
     }
 }

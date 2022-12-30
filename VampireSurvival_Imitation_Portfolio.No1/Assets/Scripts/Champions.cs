@@ -11,3 +11,14 @@ namespace Champion
         public int EXP;
     }
 }
+
+namespace Monster
+{
+    public struct MonsterData
+    {
+        public int HP;
+        public int Speed;
+        public int HasMoney;
+        public int HasEXP;
+    }
+}
