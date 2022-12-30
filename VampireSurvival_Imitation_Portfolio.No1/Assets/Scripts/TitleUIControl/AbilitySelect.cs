@@ -32,6 +32,11 @@ public class AbilitySelect : MonoBehaviour
 
     private void AbilityUp()
     {
+        if (_abilityCount >= _abilityToggle.Length)
+        {
+            return;
+        }
+
         for (int i = 0; i < _abilityToggle.Length; ++i)
         {
             if (_abilityToggle[i].isOn == false)
@@ -45,6 +50,11 @@ public class AbilitySelect : MonoBehaviour
 
     private void AbilityReset()
     {
+        if (_abilityCount == 0)
+        {
+            return;
+        }
+
         for (int i = 0; i < _abilityToggle.Length; ++i)
         {
             if (_abilityToggle[i].isOn == true)
