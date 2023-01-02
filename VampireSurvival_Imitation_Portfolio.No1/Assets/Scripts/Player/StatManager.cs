@@ -3,18 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 using ChampionData = Champion.ChampionData;
 
-public class Stat : MonoBehaviour
+public class StatManager : MonoBehaviour
 {
+    private StatManager _instance;
+
+    public StatManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                return null;
+            }
+
+            return _instance;
+        }
+    }
+
     [SerializeField] private CharacterSelect _characterSelect;
     [SerializeField] private TextMeshProUGUI[] _statText;
 
     private ChampionData _championData;
+    public ChampionData ChampionData { get { return _championData; } private set { _championData = value; } }
 
     public Action IndexChange;
 
     private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+
+        
+    }
+
+    private void Start()
     {
         IndexChange = SetStat;
     }

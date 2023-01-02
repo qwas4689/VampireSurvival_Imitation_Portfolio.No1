@@ -7,7 +7,7 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField] private Image[] _characters;
     [SerializeField] private PlayerInput _playerInput;
 
-    [SerializeField] private Stat _stat;
+    [SerializeField] private StatManager _stat;
     [SerializeField] private GameObject _mapPanel;
     [SerializeField] private TitleButtonsController _titleButtonsController;
     [SerializeField] private UIUtil _uIUtil;

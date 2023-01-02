@@ -15,4 +15,10 @@ namespace Define
         AcquisitionRange,
         EXP,
     }
+
+    public enum EPlayerInput
+    {
+        UI,
+        InGame,
+    }
 }
