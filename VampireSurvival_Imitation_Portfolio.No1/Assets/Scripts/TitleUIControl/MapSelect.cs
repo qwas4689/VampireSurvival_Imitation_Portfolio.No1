@@ -9,6 +9,7 @@ public class MapSelect : MonoBehaviour
     [SerializeField] private Image[] _maps;
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private TitleButtonsController _titleButtonsController;
+    [SerializeField] private UIUtil _uIUtil;
 
     private int _mapIndex;
 
@@ -18,9 +19,6 @@ public class MapSelect : MonoBehaviour
     private const int DEFAULT_VALUE = 0;
     private const int UP = 0;
     private const int DOWN = 1;
-
-    private bool isTimeOn = false;
-    private float flickerTime;
 
     void Update()
     {
@@ -52,25 +50,12 @@ public class MapSelect : MonoBehaviour
                 }
             }
 
-            Flicker(_maps[_mapIndex]);
+            _uIUtil.Flicker(_maps[_mapIndex]);
 
             if (_playerInput.IsNext)
             {
                 SceneManager.LoadScene(1);
             }
-        }
-    }
-
-    private void Flicker(Image img)
-    {
-        flickerTime += Time.deltaTime;
-
-        img.color = isTimeOn == false ? Color.yellow : Color.white;
-
-        if (flickerTime > 0.4f)
-        {
-            isTimeOn = !isTimeOn;
-            flickerTime -= flickerTime;
         }
     }
 }

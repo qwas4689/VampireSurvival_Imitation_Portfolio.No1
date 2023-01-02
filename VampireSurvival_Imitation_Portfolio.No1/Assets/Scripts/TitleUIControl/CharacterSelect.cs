@@ -10,6 +10,7 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField] private Stat _stat;
     [SerializeField] private GameObject _mapPanel;
     [SerializeField] private TitleButtonsController _titleButtonsController;
+    [SerializeField] private UIUtil _uIUtil;
 
     // »óÇÏÁÂ¿ì
     private int[] _characterLookUpTable = { -3, 3, 1, -1 };
@@ -21,15 +22,12 @@ public class CharacterSelect : MonoBehaviour
     private const int LEFT = 3;
 
     private const int DEFAULT_VALUE = 0;
-    private bool isTimeOn = false;
-    private float flickerTime;
 
     private int _characterIndex;
     public int CharacterIndex { get { return _characterIndex; } set { _characterIndex = value; } }
 
     private void Update()
     {
-        Debug.Log(_characterIndex);
         if (_titleButtonsController.UIStack.Count == 1)
         {
             if (_playerInput.IsUp)
@@ -105,26 +103,14 @@ public class CharacterSelect : MonoBehaviour
             }
 
             _stat.IndexChange.Invoke();
-            Flicker(_characters[_characterIndex]);
+
+            _uIUtil.Flicker(_characters[_characterIndex]);
 
             if (_playerInput.IsNext)
             {
                 _titleButtonsController.UIStack.Push(_mapPanel);
                 _mapPanel.SetActive(true);
             }
-        }
-    }
-
-    private void Flicker(Image img)
-    {
-        flickerTime += Time.deltaTime;
-
-        img.color = isTimeOn == false ? Color.yellow : Color.white;
-
-        if (flickerTime > 0.4f)
-        {
-            isTimeOn = !isTimeOn;
-            flickerTime -= flickerTime;
         }
     }
 }

@@ -4583,6 +4583,7 @@ MonoBehaviour:
   _stat: {fileID: 600034616}
   _mapPanel: {fileID: 1159867274}
   _titleButtonsController: {fileID: 977928612}
+  _uIUtil: {fileID: 2145065927}
 --- !u!114 &600034616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8739,7 +8740,8 @@ MonoBehaviour:
   - {fileID: 1542405730}
   - {fileID: 789578421}
   _playerInput: {fileID: 496369350}
-  _titleButtonsController: {fileID: 0}
+  _titleButtonsController: {fileID: 977928612}
+  _uIUtil: {fileID: 2145065927}
 --- !u!1 &1172514020
 GameObject:
   m_ObjectHideFlags: 0
@@ -16317,6 +16319,50 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!1 &2145065926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2145065928}
+  - component: {fileID: 2145065927}
+  m_Layer: 0
+  m_Name: UIUitle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2145065927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145065926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08075290568a614cb2ff8e0dc3ed78b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2145065928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145065926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146840991
 GameObject:
   m_ObjectHideFlags: 0
